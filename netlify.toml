@@ -1,0 +1,7 @@
+[build]
+  command = "npm run netlify-build"
+  publish = "out"
+
+[build.environment]
+  NEXT_PUBLIC_APP_URL = "https://sacred-herb-app.netlify.app"
+  NODE_VERSION = "18"
