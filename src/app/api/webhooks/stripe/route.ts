@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { constructEvent, stripe } from '@/lib/stripe';
 import { supabase } from '@/lib/supabase';
 import { headers } from 'next/headers';
+import Stripe from 'stripe';
 
 export async function POST(request: NextRequest) {
   try {
@@ -17,7 +18,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Verify the webhook signature
-    const event = constructEvent(body, signature, webhookSecret);
+    const event = constructEvent(body, signature, webhookSecret) as Stripe.Event;
 
     // Handle different event types
     switch (event.type) {

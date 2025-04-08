@@ -136,8 +136,29 @@ export async function cancelSubscription(subscriptionId: string) {
   }
 }
 
-export async function constructEvent(payload: string, signature: string, webhookSecret: string) {
+export function constructEvent(payload: string, signature: string, webhookSecret: string) {
   try {
+    // In development mode, return a mock event
+    if (isDevelopment) {
+      return {
+        type: 'checkout.session.completed',
+        data: {
+          object: {
+            id: 'cs_test_' + Math.random().toString(36).substring(2, 15),
+            payment_status: 'paid',
+            metadata: {
+              userId: '24fbe759-5ef8-488b-82cb-5ea8ea6a66f5',
+              productId: '1',
+              productType: 'ebook'
+            },
+            customer: 'cus_test_' + Math.random().toString(36).substring(2, 15),
+            amount_total: 999
+          }
+        }
+      };
+    }
+    
+    // In production, use the real Stripe webhook handler
     const event = stripe.webhooks.constructEvent(payload, signature, webhookSecret);
     return event;
   } catch (error) {

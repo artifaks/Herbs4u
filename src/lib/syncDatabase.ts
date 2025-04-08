@@ -155,9 +155,12 @@ async function syncHerbCategories(
         continue;
       }
 
-      if (newCategory && newCategory.length > 0) {
+      if (newCategory && newCategory.length > 0 && newCategory[0].id !== undefined) {
         categoryId = newCategory[0].id;
-        categoryMap.set(categoryLower, categoryId);
+        // Only set in the map if we have a valid ID
+        if (categoryId !== undefined) {
+          categoryMap.set(categoryLower, categoryId);
+        }
       }
     }
 
