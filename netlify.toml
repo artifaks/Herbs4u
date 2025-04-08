@@ -5,3 +5,9 @@
 [build.environment]
   NEXT_PUBLIC_APP_URL = "https://sacred-herb-app.netlify.app"
   NODE_VERSION = "18"
+
+# Redirect all routes to index.html for client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
