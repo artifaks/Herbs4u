@@ -1,38 +1,9 @@
 [build]
-  command = "npm run netlify-build"
+  command = "npm run build"
   publish = "out"
 
-[build.environment]
-  NEXT_PUBLIC_APP_URL = "https://sacred-herb-static.netlify.app"
-  NODE_VERSION = "18"
-  NETLIFY_NEXT_PLUGIN_SKIP = "true"
-  NEXT_TELEMETRY_DISABLED = "1"
-
-# Handle client-side routing for Next.js
+# Netlify settings for single-page applications
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-# Ensure API routes are properly handled
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
-  status = 200
-
-# Ensure dynamic routes work properly
-[[redirects]]
-  from = "/herbs/*"
-  to = "/herbs/[slug]/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/categories/*"
-  to = "/categories/[slug]/index.html"
-  status = 200
-
-# Handle 404 errors with a custom page
-[[redirects]]
-  from = "/*"
-  to = "/404.html"
-  status = 404
