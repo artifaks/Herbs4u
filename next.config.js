@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
+const { copyFileSync } = require('fs');
+const path = require('path');
+
+// This will ensure the _redirects file is copied to the out directory
 const nextConfig = {
   reactStrictMode: true,
   images: {
@@ -40,4 +44,30 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig
+// Custom function to copy the _redirects file to the output directory
+const originalNextConfig = nextConfig;
+
+// Wrap the original config to add our custom export handler
+module.exports = {
+  ...originalNextConfig,
+  // Add a custom handler to copy the _redirects file after export
+  webpack: (config, options) => {
+    if (originalNextConfig.webpack) {
+      config = originalNextConfig.webpack(config, options);
+    }
+    return config;
+  },
+  // This runs after the build is complete
+  async afterBuild() {
+    try {
+      // Copy the _redirects file to the output directory
+      copyFileSync(
+        path.join(process.cwd(), '_redirects'),
+        path.join(process.cwd(), 'out', '_redirects')
+      );
+      console.log('Successfully copied _redirects file to output directory');
+    } catch (error) {
+      console.error('Error copying _redirects file:', error);
+    }
+  }
+}

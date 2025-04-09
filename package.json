@@ -8,7 +8,7 @@
     "export": "next export",
     "start": "next start",
     "lint": "next lint",
-    "netlify-build": "next build"
+    "netlify-build": "next build && cp _redirects out/_redirects"
   },
   "dependencies": {
     "@stripe/stripe-js": "^2.2.2",
