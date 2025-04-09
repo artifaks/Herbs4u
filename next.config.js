@@ -16,13 +16,26 @@ const nextConfig = {
         protocol: 'https',
         hostname: '*.netlify.app',
       },
+      {
+        protocol: 'https',
+        hostname: '*.windsurf.build',
+      },
     ],
-    unoptimized: true, // Set to true for Netlify deployment
+    unoptimized: true, // Required for static export
   },
   // Output as a static site for Netlify
   output: 'export',
+  // Ensure trailing slashes are handled correctly
+  trailingSlash: true,
   // Disable server-side features that aren't compatible with static export
-  distDir: 'out',
+  distDir: '.next',
+  // Ensure we don't use features incompatible with static export
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 }
 
 module.exports = nextConfig

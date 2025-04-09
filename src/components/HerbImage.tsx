@@ -18,8 +18,8 @@ export default function HerbImage({
   alt,
   className = '',
   fill = false,
-  width,
-  height,
+  width = 400,
+  height = 300,
   sizes
 }: HerbImageProps) {
   const [error, setError] = useState(false);
@@ -68,8 +68,9 @@ export default function HerbImage({
       width={!fill ? width : undefined}
       height={!fill ? height : undefined}
       className={className}
-      sizes={sizes}
+      sizes={sizes || '(max-width: 768px) 100vw, 400px'}
       onError={() => setError(true)}
+      priority={false}
     />
   );
 }

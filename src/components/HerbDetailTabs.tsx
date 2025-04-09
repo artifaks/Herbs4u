@@ -24,23 +24,14 @@ const Tab: React.FC<TabProps> = ({ children, activeTab, tabName }) => {
 };
 
 interface HerbDetailTabsProps {
-  overviewSection: React.ReactNode;
-  preparationsSection: React.ReactNode;
-  historySection: React.ReactNode;
-  studiesSection: React.ReactNode;
-  pairingsSection: React.ReactNode;
-  visualizationsSection: React.ReactNode;
+  activeTab: string;
+  setActiveTab: (tab: string) => void;
 }
 
 export default function HerbDetailTabs({
-  overviewSection,
-  preparationsSection,
-  historySection,
-  studiesSection,
-  pairingsSection,
-  visualizationsSection
+  activeTab,
+  setActiveTab
 }: HerbDetailTabsProps) {
-  const [activeTab, setActiveTab] = useState('overview');
 
   const tabs = [
     { name: 'overview', label: 'Overview', icon: <FaLeaf className="w-4 h-4" /> },
@@ -70,27 +61,7 @@ export default function HerbDetailTabs({
         ))}
       </div>
 
-      {/* Tab Content */}
-      <div className="p-6">
-        <Tab activeTab={activeTab} tabName="overview">
-          {overviewSection}
-        </Tab>
-        <Tab activeTab={activeTab} tabName="prep">
-          {preparationsSection}
-        </Tab>
-        <Tab activeTab={activeTab} tabName="history">
-          {historySection}
-        </Tab>
-        <Tab activeTab={activeTab} tabName="studies">
-          {studiesSection}
-        </Tab>
-        <Tab activeTab={activeTab} tabName="pairings">
-          {pairingsSection}
-        </Tab>
-        <Tab activeTab={activeTab} tabName="visualizations">
-          {visualizationsSection}
-        </Tab>
-      </div>
+      {/* Tab content is rendered separately in the parent component */}
     </div>
   );
 }

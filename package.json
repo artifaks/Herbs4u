@@ -8,7 +8,7 @@
     "export": "next export",
     "start": "next start",
     "lint": "next lint",
-    "netlify-build": "next build && next export"
+    "netlify-build": "next build"
   },
   "dependencies": {
     "@stripe/stripe-js": "^2.2.2",

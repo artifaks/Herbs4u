@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herbs4u eBook Preview</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f7f5;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 20px;
+        }
+        h1 {
+            color: #2E7D32;
+        }
+        h2 {
+            color: #388E3C;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        h3 {
+            color: #43A047;
+        }
+        .herb-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        .herb-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            width: calc(33% - 20px);
+            transition: transform 0.3s ease;
+        }
+        .herb-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .herb-name {
+            color: #2E7D32;
+            margin-top: 0;
+        }
+        .scientific-name {
+            font-style: italic;
+            color: #666;
+            margin-top: -10px;
+        }
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+        .category {
+            background-color: #E8F5E9;
+            color: #2E7D32;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .benefits {
+            margin-top: 15px;
+        }
+        .benefits ul {
+            padding-left: 20px;
+        }
+        .fun-fact {
+            background-color: #F1F8E9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-style: italic;
+        }
+        .fun-fact-title {
+            font-weight: bold;
+            color: #558B2F;
+            margin-bottom: 5px;
+        }
+        .section-title {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 900px) {
+            .herb-card {
+                width: calc(50% - 20px);
+            }
+        }
+        @media (max-width: 600px) {
+            .herb-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Herbs4u eBook Content Preview</h1>
+        <p>A preview of the newly added herbs for your medicinal herb eBooks</p>
+    </header>
+
+    <section>
+        <h2 class="section-title">Immune-Boosting Herbs</h2>
+        <div class="herb-container">
+            <!-- Elderberry -->
+            <div class="herb-card">
+                <h3 class="herb-name">Elderberry</h3>
+                <p class="scientific-name">Sambucus nigra</p>
+                <div class="categories">
+                    <span class="category">Immune Support</span>
+                    <span class="category">Antiviral</span>
+                    <span class="category">Respiratory Health</span>
+                    <span class="category">Antioxidant</span>
+                    <span class="category">Berry Medicine</span>
+                </div>
+                <p>Elderberry is a powerful immune-supporting herb with antiviral properties that has been used for centuries to prevent and address cold and flu symptoms, while providing additional benefits for respiratory health and overall immunity.</p>
+                <div class="benefits">
+                    <strong>Key Benefits:</strong>
+                    <ul>
+                        <li>Supports immune system function</li>
+                        <li>May reduce duration and severity of cold and flu symptoms</li>
+                        <li>Provides powerful antioxidant protection</li>
+                        <li>Supports respiratory health</li>
+                        <li>May help reduce inflammation</li>
+                    </ul>
+                </div>
+                <div class="fun-fact">
+                    <div class="fun-fact-title">Fun Fact:</div>
+                    The elder tree has been called "the medicine chest of the country people" and has a rich folklore surrounding it. In many European traditions, it was believed that a guardian spirit, the Elder Mother, lived in the tree and that one should ask her permission before harvesting any part of the plant.
+                </div>
+            </div>
+
+            <!-- Echinacea -->
+            <div class="herb-card">
+                <h3 class="herb-name">Echinacea</h3>
+                <p class="scientific-name">Echinacea purpurea, E. angustifolia, E. pallida</p>
+                <div class="categories">
+                    <span class="category">Immune Support</span>
+                    <span class="category">Antimicrobial</span>
+                    <span class="category">Anti-inflammatory</span>
+                    <span class="category">Wound Healing</span>
+                    <span class="category">Native American Medicine</span>
+                </div>
+                <p>Echinacea is a powerful immune-stimulating herb native to North America that has been used for centuries to prevent and address infections, support immune function, and enhance the body's natural defenses against pathogens.</p>
+                <div class="benefits">
+                    <strong>Key Benefits:</strong>
+                    <ul>
+                        <li>Stimulates immune system function</li>
+                        <li>May reduce duration and severity of cold and flu symptoms</li>
+                        <li>Supports the body's response to infections</li>
+                        <li>Has antimicrobial properties</li>
+                        <li>Supports wound healing when used topically</li>
+                    </ul>
+                </div>
+                <div class="fun-fact">
+                    <div class="fun-fact-title">Fun Fact:</div>
+                    Echinacea gets its name from the Greek word "echinos," meaning hedgehog or sea urchin, referring to the spiky central cone of the flower. It was one of the most widely used medicinal plants among Native American tribes, with at least 14 different tribes using it for various ailments.
+                </div>
+            </div>
+
+            <!-- Holy Basil -->
+            <div class="herb-card">
+                <h3 class="herb-name">Holy Basil</h3>
+                <p class="scientific-name">Ocimum sanctum (Ocimum tenuiflorum)</p>
+                <div class="categories">
+                    <span class="category">Adaptogen</span>
+                    <span class="category">Stress Relief</span>
+                    <span class="category">Cognitive Function</span>
+                    <span class="category">Immune Support</span>
+                    <span class="category">Sacred Herb</span>
+                </div>
+                <p>Holy Basil, also known as Tulsi, is a sacred adaptogenic herb that has been revered in Ayurvedic medicine for over 3,000 years for its ability to promote balance in the body and mind, support stress resilience, enhance cognitive function, and support overall wellbeing.</p>
+                <div class="benefits">
+                    <strong>Key Benefits:</strong>
+                    <ul>
+                        <li>Helps the body adapt to stress</li>
+                        <li>Supports healthy cortisol levels</li>
+                        <li>Enhances mental clarity and cognitive function</li>
+                        <li>Supports immune system function</li>
+                        <li>Has antioxidant and anti-inflammatory properties</li>
+                    </ul>
+                </div>
+                <div class="fun-fact">
+                    <div class="fun-fact-title">Fun Fact:</div>
+                    Holy Basil (Tulsi) is known as "The Queen of Herbs" and "The Incomparable One" in Ayurvedic medicine. In Hindu tradition, it is considered the earthly manifestation of the goddess Tulsi, a consort of the god Vishnu.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Women's Health Herbs</h2>
+        <div class="herb-container">
+            <!-- Red Raspberry Leaf -->
+            <div class="herb-card">
+                <h3 class="herb-name">Red Raspberry Leaf</h3>
+                <p class="scientific-name">Rubus idaeus</p>
+                <div class="categories">
+                    <span class="category">Women's Health</span>
+                    <span class="category">Pregnancy Support</span>
+                    <span class="category">Nutritive</span>
+                    <span class="category">Astringent</span>
+                    <span class="category">Uterine Tonic</span>
+                </div>
+                <p>Red raspberry leaf is a nourishing, toning herb rich in vitamins, minerals, and tannins that has been used for centuries to support women's reproductive health, particularly during pregnancy and childbirth, while also providing general nutritive benefits.</p>
+                <div class="benefits">
+                    <strong>Key Benefits:</strong>
+                    <ul>
+                        <li>Tones and strengthens the uterine muscles</li>
+                        <li>May ease menstrual cramps and regulate cycles</li>
+                        <li>Provides essential nutrients including iron, calcium, and magnesium</li>
+                        <li>Supports healthy pregnancy and may ease labor</li>
+                        <li>Has astringent properties beneficial for digestive issues</li>
+                    </ul>
+                </div>
+                <div class="fun-fact">
+                    <div class="fun-fact-title">Fun Fact:</div>
+                    Red raspberry leaf has been called "the woman's herb" for centuries, but it was also used by Native American men before hunting because they believed it would prevent muscle cramping during the hunt. The leaf—not the fruit—is the medicinal part, though the delicious berries have their own health benefits.
+                </div>
+            </div>
+
+            <!-- Chamomile -->
+            <div class="herb-card">
+                <h3 class="herb-name">Chamomile</h3>
+                <p class="scientific-name">Matricaria recutita</p>
+                <div class="categories">
+                    <span class="category">Nervine</span>
+                    <span class="category">Digestive Support</span>
+                    <span class="category">Anti-inflammatory</span>
+                    <span class="category">Sleep Support</span>
+                    <span class="category">Skin Health</span>
+                </div>
+                <p>Chamomile is a gentle yet effective nervine herb with calming, anti-inflammatory, and digestive properties that has been used for centuries to soothe nervous tension, support digestive health, and address inflammatory conditions throughout the body.</p>
+                <div class="benefits">
+                    <strong>Key Benefits:</strong>
+                    <ul>
+                        <li>Calms the nervous system and reduces anxiety</li>
+                        <li>Promotes restful sleep</li>
+                        <li>Soothes digestive inflammation and spasms</li>
+                        <li>Reduces inflammation throughout the body</li>
+                        <li>Supports skin health and wound healing</li>
+                    </ul>
+                </div>
+                <div class="fun-fact">
+                    <div class="fun-fact-title">Fun Fact:</div>
+                    The name "chamomile" comes from the Greek words "khamai" (on the ground) and "melon" (apple), referring to the apple-like scent of the flowers. In ancient Egypt, chamomile was dedicated to the sun god Ra because of its sunny appearance and was used in everything from beverages to embalming oils.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Digestive Health Herbs</h2>
+        <div class="herb-container">
+            <!-- Ginger -->
+            <div class="herb-card">
+                <h3 class="herb-name">Ginger</h3>
+                <p class="scientific-name">Zingiber officinale</p>
+                <div class="categories">
+                    <span class="category">Digestive Support</span>
+                    <span class="category">Anti-inflammatory</span>
+                    <span class="category">Circulation</span>
+                    <span class="category">Warming</span>
+                    <span class="category">Immune Support</span>
+                </div>
+                <p>Ginger is a warming, aromatic herb with powerful digestive, anti-inflammatory, and circulatory properties that has been used for thousands of years across multiple cultures to address digestive complaints, reduce inflammation, and support overall wellness.</p>
+                <div class="benefits">
+                    <strong>Key Benefits:</strong>
+                    <ul>
+                        <li>Soothes digestive discomfort and nausea</li>
+                        <li>Reduces inflammation throughout the body</li>
+                        <li>Improves circulation and warms the body</li>
+                        <li>Supports immune function</li>
+                        <li>May help reduce pain and muscle soreness</li>
+                    </ul>
+                </div>
+                <div class="fun-fact">
+                    <div class="fun-fact-title">Fun Fact:</div>
+                    Ginger has been so valued throughout history that it was used as currency in ancient times! During the 13th and 14th centuries, the value of a pound of ginger was equivalent to the cost of a sheep. The Romans taxed it as a luxury item, and by medieval times, it was so prized in Europe that one pound of ginger could be traded for a live sheep.
+                </div>
+            </div>
+
+            <!-- Milk Thistle -->
+            <div class="herb-card">
+                <h3 class="herb-name">Milk Thistle</h3>
+                <p class="scientific-name">Silybum marianum</p>
+                <div class="categories">
+                    <span class="category">Liver Health</span>
+                    <span class="category">Detoxification</span>
+                    <span class="category">Antioxidant</span>
+                    <span class="category">Digestive Support</span>
+                    <span class="category">Skin Health</span>
+                </div>
+                <p>Milk thistle is renowned for its liver-protective and detoxifying properties, with a long history of use in supporting liver health and addressing various liver conditions.</p>
+                <div class="benefits">
+                    <strong>Key Benefits:</strong>
+                    <ul>
+                        <li>Protects liver cells from toxins and damage</li>
+                        <li>Supports liver regeneration</li>
+                        <li>Provides powerful antioxidant effects</li>
+                        <li>May help lower cholesterol levels</li>
+                        <li>Supports healthy insulin levels</li>
+                    </ul>
+                </div>
+                <div class="fun-fact">
+                    <div class="fun-fact-title">Fun Fact:</div>
+                    The name "milk thistle" comes from the milky white sap that flows when the leaves are broken, and the white marbling pattern on its leaves which, according to legend, was caused by drops of the Virgin Mary's milk falling onto the plant.
+                </div>
+            </div>
+        <h2 class="section-title">Traditional Medicinal Herbs</h2>
+        <div class="herb-container">
+            <!-- Valerian -->
+            <div class="herb-card">
+                <h3 class="herb-name">Valerian</h3>
+                <p class="scientific-name">Valeriana officinalis</p>
+                <div class="categories">
+                    <span class="category">Sleep Support</span>
+                    <span class="category">Anxiety Relief</span>
+                    <span class="category">Nervous System</span>
+                    <span class="category">Relaxation</span>
+                    <span class="category">Stress Management</span>
+                </div>
+                <p>Valerian is a powerful nervine herb with sedative properties that has been used for centuries to promote relaxation, improve sleep quality, and calm nervous tension without the side effects of pharmaceutical sleep aids.</p>
+                <div class="benefits">
+                    <strong>Key Benefits:</strong>
+                    <ul>
+                        <li>Promotes deep, restful sleep</li>
+                        <li>Reduces anxiety and nervous tension</li>
+                        <li>Helps ease muscle spasms and menstrual cramps</li>
+                        <li>Supports healthy stress response</li>
+                        <li>May help reduce symptoms of restless leg syndrome</li>
+                    </ul>
+                </div>
+                <div class="fun-fact">
+                    <div class="fun-fact-title">Fun Fact:</div>
+                    Despite its powerful sleep-promoting effects, valerian's name comes from the Latin word "valere" meaning "to be strong" or "to be healthy." Ironically, while valerian helps humans sleep, cats have the opposite reaction—they become excited and playful when exposed to valerian, similar to their response to catnip!
+                </div>
+            </div>
+
+            <!-- Marshmallow Root -->
+            <div class="herb-card">
+                <h3 class="herb-name">Marshmallow Root</h3>
+                <p class="scientific-name">Althaea officinalis</p>
+                <div class="categories">
+                    <span class="category">Digestive Support</span>
+                    <span class="category">Respiratory Health</span>
+                    <span class="category">Urinary Tract</span>
+                    <span class="category">Skin Health</span>
+                    <span class="category">Soothing</span>
+                </div>
+                <p>Marshmallow root is a soothing demulcent herb rich in mucilage that has been used for centuries to calm irritated tissues, support digestive health, and address respiratory conditions with its gentle, cooling properties.</p>
+                <div class="benefits">
+                    <strong>Key Benefits:</strong>
+                    <ul>
+                        <li>Soothes irritated mucous membranes</li>
+                        <li>Supports respiratory health</li>
+                        <li>Calms digestive inflammation</li>
+                        <li>Supports urinary tract health</li>
+                        <li>Provides gentle detoxification support</li>
+                    </ul>
+                </div>
+                <div class="fun-fact">
+                    <div class="fun-fact-title">Fun Fact:</div>
+                    The modern confectionery marshmallow was originally made from the root of the marshmallow plant! Ancient Egyptians combined marshmallow root with honey to make a confection reserved for gods and royalty. The modern marshmallow no longer contains the plant but was inspired by this ancient treat.
+                </div>
+            </div>
+
+            <!-- Hawthorn -->
+            <div class="herb-card">
+                <h3 class="herb-name">Hawthorn</h3>
+                <p class="scientific-name">Crataegus species</p>
+                <div class="categories">
+                    <span class="category">Heart Health</span>
+                    <span class="category">Cardiovascular</span>
+                    <span class="category">Circulatory Support</span>
+                    <span class="category">Antioxidant</span>
+                    <span class="category">Longevity</span>
+                </div>
+                <p>Hawthorn is a premier cardiovascular tonic that has been used for centuries to support heart health, regulate blood pressure, and strengthen the entire cardiovascular system with its gentle yet profound effects.</p>
+                <div class="benefits">
+                    <strong>Key Benefits:</strong>
+                    <ul>
+                        <li>Strengthens heart muscle function</li>
+                        <li>Helps regulate blood pressure</li>
+                        <li>Improves circulation</li>
+                        <li>Provides antioxidant protection for the cardiovascular system</li>
+                        <li>Supports healthy cholesterol levels</li>
+                    </ul>
+                </div>
+                <div class="fun-fact">
+                    <div class="fun-fact-title">Fun Fact:</div>
+                    Hawthorn is known as "the heart herb" not only for its cardiovascular benefits but also because its berries are heart-shaped. In Celtic tradition, hawthorn was believed to house fairies and was considered a portal to the otherworld. Cutting down a hawthorn tree was thought to bring terrible misfortune, which may have helped preserve these important medicinal trees throughout history!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Adaptogenic Herbs</h2>
+        <div class="herb-container">
+            <!-- Ashwagandha -->
+            <div class="herb-card">
+                <h3 class="herb-name">Ashwagandha</h3>
+                <p class="scientific-name">Withania somnifera</p>
+                <div class="categories">
+                    <span class="category">Adaptogen</span>
+                    <span class="category">Stress Relief</span>
+                    <span class="category">Energy</span>
+                    <span class="category">Immune Support</span>
+                    <span class="category">Cognitive Function</span>
+                </div>
+                <p>Ashwagandha is a powerful adaptogenic herb that has been used in Ayurvedic medicine for over 3,000 years to reduce stress, increase energy, and improve concentration while supporting overall vitality and resilience.</p>
+                <div class="benefits">
+                    <strong>Key Benefits:</strong>
+                    <ul>
+                        <li>Helps the body adapt to stress</li>
+                        <li>Supports healthy adrenal function</li>
+                        <li>Improves sleep quality</li>
+                        <li>Enhances mental clarity and focus</li>
+                        <li>Supports immune system function</li>
+                    </ul>
+                </div>
+                <div class="fun-fact">
+                    <div class="fun-fact-title">Fun Fact:</div>
+                    The name "ashwagandha" means "smell of horse" in Sanskrit, referring both to the herb's distinct odor and the traditional belief that consuming it would give you the strength and vitality of a horse. In Ayurvedic tradition, it is classified as a "rasayana," one of the most powerful herbs for promoting longevity and rejuvenation.
+                </div>
+            </div>
+
+            <!-- Reishi Mushroom -->
+            <div class="herb-card">
+                <h3 class="herb-name">Reishi Mushroom</h3>
+                <p class="scientific-name">Ganoderma lucidum</p>
+                <div class="categories">
+                    <span class="category">Adaptogen</span>
+                    <span class="category">Immune Support</span>
+                    <span class="category">Longevity</span>
+                    <span class="category">Stress Relief</span>
+                    <span class="category">Sleep Support</span>
+                </div>
+                <p>Reishi mushroom, known as the "mushroom of immortality" in ancient Chinese medicine, is a powerful adaptogenic fungus that supports immune function, promotes stress resilience, and has been revered for thousands of years for its ability to enhance vitality and longevity.</p>
+                <div class="benefits">
+                    <strong>Key Benefits:</strong>
+                    <ul>
+                        <li>Supports immune system function</li>
+                        <li>Helps the body adapt to stress</li>
+                        <li>Promotes restful sleep</li>
+                        <li>Supports liver health and detoxification</li>
+                        <li>Provides antioxidant protection</li>
+                    </ul>
+                </div>
+                <div class="fun-fact">
+                    <div class="fun-fact-title">Fun Fact:</div>
+                    Reishi mushroom was so valued in ancient China that it was reserved exclusively for the emperor and royal family. It was considered so precious that anyone outside the royal court who was caught harvesting or possessing reishi could be sentenced to death! In Taoist mythology, it was believed that consuming reishi regularly would grant immortality and allow one to live among the celestial beings.
+                </div>
+            </div>
+
+            <!-- Schisandra -->
+            <div class="herb-card">
+                <h3 class="herb-name">Schisandra</h3>
+                <p class="scientific-name">Schisandra chinensis</p>
+                <div class="categories">
+                    <span class="category">Adaptogen</span>
+                    <span class="category">Liver Support</span>
+                    <span class="category">Cognitive Function</span>
+                    <span class="category">Stress Relief</span>
+                    <span class="category">Longevity</span>
+                </div>
+                <p>Schisandra is a remarkable adaptogenic berry that contains all five flavors (sweet, sour, salty, bitter, and pungent) and has been used in Traditional Chinese Medicine for centuries to support liver health, enhance mental performance, and increase resilience to stress.</p>
+                <div class="benefits">
+                    <strong>Key Benefits:</strong>
+                    <ul>
+                        <li>Supports liver health and detoxification</li>
+                        <li>Enhances mental clarity and focus</li>
+                        <li>Helps the body adapt to stress</li>
+                        <li>Supports adrenal function</li>
+                        <li>Provides antioxidant protection</li>
+                    </ul>
+                </div>
+                <div class="fun-fact">
+                    <div class="fun-fact-title">Fun Fact:</div>
+                    Schisandra is known as "wu wei zi" in Chinese, which literally means "five flavor berry" because it contains all five flavors recognized in Traditional Chinese Medicine: sweet, sour, salty, bitter, and pungent. According to TCM theory, this makes it an exceptionally balanced herb that can affect all five organ systems (liver, heart, spleen, lungs, and kidneys) and the five elements (wood, fire, earth, metal, and water).
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; margin-top: 50px; padding: 20px; border-top: 1px solid #ddd;">
+        <p>Herbs4u eBook Content Preview - Created for your medicinal herb eBooks</p>
+        <p style="margin-top: 10px; font-size: 14px;">This preview shows just a small sample of the 15 comprehensive herb entries we've added to your database.</p>
+    </footer>
+</body>
+</html>

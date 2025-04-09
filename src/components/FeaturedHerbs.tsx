@@ -3,48 +3,70 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaStar } from 'react-icons/fa';
-
-// This would typically come from an API or database
-const featuredHerbs = [
-  {
-    id: 1,
-    name: 'Ashwagandha',
-    slug: 'ashwagandha',
-    description: 'An adaptogenic herb that helps the body manage stress and promotes overall wellbeing.',
-    imageUrl: '/images/herbs/ashwagandha.jpg',
-    rating: 4.8,
-    categories: ['Stress', 'Energy', 'Sleep'],
-  },
-  {
-    id: 2,
-    name: 'Echinacea',
-    slug: 'echinacea',
-    description: 'Supports the immune system and helps the body fight off infections and colds.',
-    imageUrl: '/images/herbs/echinacea.jpg',
-    rating: 4.6,
-    categories: ['Immunity', 'Wellness'],
-  },
-  {
-    id: 3,
-    name: 'Chamomile',
-    slug: 'chamomile',
-    description: 'Promotes relaxation and healthy sleep, while also supporting digestive health.',
-    imageUrl: '/images/herbs/chamomile.jpg',
-    rating: 4.7,
-    categories: ['Sleep', 'Digestion', 'Stress'],
-  },
-  {
-    id: 4,
-    name: 'Turmeric',
-    slug: 'turmeric',
-    description: 'A powerful anti-inflammatory herb that supports joint health and overall wellness.',
-    imageUrl: '/images/herbs/turmeric.jpg',
-    rating: 4.9,
-    categories: ['Inflammation', 'Joints', 'Immunity'],
-  },
-];
+import { useState, useEffect } from 'react';
+import { HerbData } from '@/types/herbs';
 
 export default function FeaturedHerbs() {
+  const [featuredHerbs, setFeaturedHerbs] = useState<HerbData[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchHerbs() {
+      try {
+        // Fetch all herbs with a high limit to ensure we get everything
+        const response = await fetch('/api/herbs?limit=100');
+        const data = await response.json();
+
+        if (data && data.herbs && data.herbs.length > 0) {
+          // Get a random selection of herbs to feature
+          const allHerbs = data.herbs;
+          const randomHerbs = [];
+          
+          // Get 8 random herbs to feature
+          const herbCount = Math.min(8, allHerbs.length);
+          const selectedIndices = new Set();
+          
+          while (selectedIndices.size < herbCount) {
+            const randomIndex = Math.floor(Math.random() * allHerbs.length);
+            if (!selectedIndices.has(randomIndex)) {
+              selectedIndices.add(randomIndex);
+              randomHerbs.push(allHerbs[randomIndex]);
+            }
+          }
+          
+          setFeaturedHerbs(randomHerbs);
+        }
+      } catch (error) {
+        console.error('Error fetching featured herbs:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchHerbs();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[...Array(8)].map((_, index) => (
+          <div key={index} className="herb-card animate-pulse">
+            <div className="h-48 bg-gray-200 dark:bg-gray-700"></div>
+            <div className="p-4">
+              <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-2"></div>
+              <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/2 mb-3"></div>
+              <div className="h-16 bg-gray-200 dark:bg-gray-700 rounded mb-3"></div>
+              <div className="flex gap-1">
+                <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-16"></div>
+                <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-16"></div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {featuredHerbs.map((herb) => (

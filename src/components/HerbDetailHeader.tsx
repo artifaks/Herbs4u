@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import HerbImage from './HerbImage';
-import { FaStar, FaBookmark, FaSeedling, FaShare, FaHeart } from 'react-icons/fa';
+import { FaStar, FaBookmark, FaSeedling, FaShare, FaHeart, FaFlask } from 'react-icons/fa';
+import HerbPreparationModal from './HerbPreparationModal';
 
 interface HerbDetailHeaderProps {
   name: string;
@@ -12,6 +13,13 @@ interface HerbDetailHeaderProps {
   imageUrl: string;
   rating: number;
   categories: string[];
+  preparations?: {
+    name: string;
+    ingredients: string[];
+    instructions: string;
+    prepTime?: string;
+    difficulty?: 'Easy' | 'Moderate' | 'Advanced';
+  }[];
 }
 
 export default function HerbDetailHeader({
@@ -20,10 +28,12 @@ export default function HerbDetailHeader({
   description,
   imageUrl,
   rating,
-  categories
+  categories,
+  preparations = []
 }: HerbDetailHeaderProps) {
   const [isSaved, setIsSaved] = useState(false);
   const [showShareOptions, setShowShareOptions] = useState(false);
+  const [isPreparationModalOpen, setIsPreparationModalOpen] = useState(false);
 
   return (
     <div className="flex flex-col md:flex-row gap-6 mb-8">
@@ -121,7 +131,26 @@ export default function HerbDetailHeader({
             <FaSeedling className="mr-2" />
             Growing Guide
           </Link>
+          {preparations && preparations.length > 0 && (
+            <button 
+              onClick={() => setIsPreparationModalOpen(true)}
+              className="btn-outline flex items-center justify-center bg-amber-50 text-amber-700 border-amber-300 hover:bg-amber-100 dark:bg-amber-900/20 dark:text-amber-300 dark:border-amber-700 dark:hover:bg-amber-800/30"
+            >
+              <FaFlask className="mr-2" />
+              Preparation
+            </button>
+          )}
         </div>
+        
+        {/* Preparation Modal */}
+        {preparations && preparations.length > 0 && (
+          <HerbPreparationModal
+            isOpen={isPreparationModalOpen}
+            onClose={() => setIsPreparationModalOpen(false)}
+            herbName={name}
+            preparations={preparations}
+          />
+        )}
       </div>
     </div>
   );

@@ -367,6 +367,371 @@ const essentialHerbs: HerbData[] = [
         link: 'https://example.com/plant-medicine'
       }
     ]
+  },
+  {
+    id: 24,
+    name: 'Lemon Balm',
+    scientificName: 'Melissa officinalis',
+    slug: 'lemon-balm',
+    description: 'Lemon balm is a lemon-scented herb from the mint family with calming properties that support the nervous system, digestion, and cognitive function while uplifting the spirits.',
+    imageUrl: '/images/herbs/lemon-balm.jpg',
+    rating: 4.7,
+    categories: ['Nervine', 'Digestive', 'Cognitive', 'Antiviral', 'Mood Support'],
+    benefits: [
+      'Calms the nervous system',
+      'Supports healthy stress response',
+      'Aids digestion and relieves gas',
+      'Has antiviral properties',
+      'Improves cognitive function and memory',
+      'Uplifts mood and reduces anxiety'
+    ],
+    uses: [
+      'Relieving anxiety and stress',
+      'Supporting sleep quality',
+      'Soothing digestive upset',
+      'Managing cold sores (topically)',
+      'Improving focus and memory',
+      'Reducing symptoms of PMS'
+    ],
+    funFact: 'Lemon balm has been used since the Middle Ages to attract bees for honey production! Its genus name "Melissa" comes from the Greek word for "honeybee." Carmelite water, a popular perfume and tonic from the 17th century, used lemon balm as its primary ingredient.',
+    dosage: {
+      powder: '1-2 teaspoons daily',
+      capsule: '300-600mg, 3 times daily',
+      tincture: '2-3ml, 3 times daily',
+      tea: '1-2 teaspoons dried herb per cup, steep for 5-10 minutes'
+    },
+    warnings: [
+      'May interact with thyroid medications',
+      'Can cause drowsiness when combined with sedatives',
+      'May interact with HIV medications and certain sedatives',
+      'Should be used with caution before surgery due to potential sedative effects'
+    ],
+    history: 'Lemon balm has been used medicinally for over 2,000 years. The ancient Greeks and Romans used it for its calming effects and to treat wounds. In the Middle Ages, it was included in elixirs said to promote longevity and reduce melancholy. The famous physician Paracelsus (1493-1541) called it the "elixir of life." By the 17th century, Carmelite nuns were creating Carmelite water, a lemon balm-based tonic that became popular throughout Europe for nervous complaints and digestive issues.',
+    culturalBackground: 'In ancient Greece, lemon balm was dedicated to the goddess Diana and used in temples. In European folk medicine, it was considered a "gladdening herb" that could lift the spirits and heal a broken heart. In Arabian medicine, it was used to treat heart palpitations and anxiety. The 17th-century English herbalist Nicholas Culpeper recommended it for "opening obstructions of the brain." In traditional European herbalism, it was often planted near beehives to encourage bees to return home and produce more honey.',
+    preparation: 'Lemon balm leaves are the part used medicinally. They can be prepared as a tea, tincture, or taken in capsules. Fresh leaves can be added to salads, desserts, and drinks for both flavor and medicinal benefits. The essential oil is sometimes used in aromatherapy. For best results, harvest leaves before the plant flowers, as this is when the volatile oils are most concentrated.',
+    preparations: [
+      {
+        name: 'Lemon Balm Calming Tea',
+        ingredients: [
+          '2 tablespoons fresh lemon balm leaves (or 1 tablespoon dried)',
+          '1 teaspoon dried chamomile flowers',
+          '1/2 teaspoon dried lavender buds',
+          '1 cup hot water',
+          'Honey to taste',
+          'Lemon slice (optional)'
+        ],
+        instructions: 'Roughly chop fresh lemon balm if using. Combine herbs in a tea infuser. Pour hot water over herbs and steep for 5-10 minutes. Strain and add honey and lemon if desired. Drink 1-3 cups daily for stress relief and digestive support. This tea is particularly beneficial in the evening to promote relaxation and sleep.'
+      },
+      {
+        name: 'Lemon Balm Tincture',
+        ingredients: [
+          '1 cup fresh lemon balm leaves (or 1/2 cup dried)',
+          '2 cups high-proof alcohol (vodka or grain alcohol)',
+          'Glass jar with tight-fitting lid'
+        ],
+        instructions: 'Chop fresh lemon balm if using. Place herb in a clean glass jar. Cover with alcohol. Seal tightly and store in a cool, dark place for 4-6 weeks, shaking daily. Strain through cheesecloth and store in dark glass dropper bottles. Take 2-3ml, 2-3 times daily for anxiety, stress, and digestive support.'
+      },
+      {
+        name: 'Lemon Balm Cold Sore Salve',
+        ingredients: [
+          '1/4 cup lemon balm-infused oil (see instructions below)',
+          '1 tablespoon beeswax pellets',
+          '10 drops lemon balm essential oil (optional)',
+          '5 drops tea tree essential oil (optional)',
+          'Small glass container for storage'
+        ],
+        instructions: 'To make lemon balm-infused oil: Fill a clean, dry glass jar halfway with dried lemon balm leaves. Cover completely with olive oil or another carrier oil. Seal and place in a sunny window for 4-6 weeks, shaking daily. Alternatively, place jar in a small pot with water and heat on low for 2-3 hours. Strain through cheesecloth. For the salve: Combine infused oil and beeswax in a double boiler and heat until beeswax is melted. Remove from heat and add essential oils if using. Pour into a small container and let cool completely. Apply to cold sores at the first sign of tingling for best results.'
+      }
+    ],
+    herbPairings: [
+      {
+        herb: 'Chamomile',
+        benefit: 'Enhanced calming effects for anxiety and sleep support'
+      },
+      {
+        herb: 'Valerian',
+        benefit: 'Powerful combination for insomnia and nervous tension'
+      },
+      {
+        herb: 'Peppermint',
+        benefit: 'Complementary digestive support with added cooling properties'
+      },
+      {
+        herb: 'St. Johns Wort',
+        benefit: 'Synergistic effects for mood support (use with caution due to interactions)'
+      }
+    ],
+    benefitsVisualization: [
+      { area: 'Nervous System Support', percentage: 90 },
+      { area: 'Mood Enhancement', percentage: 85 },
+      { area: 'Digestive Aid', percentage: 80 },
+      { area: 'Antiviral Properties', percentage: 75 },
+      { area: 'Cognitive Support', percentage: 70 }
+    ],
+    resources: [
+      {
+        title: 'Melissa officinalis L: A Review Study With an Antioxidant Prospective',
+        author: 'Journal of Evidence-Based Complementary & Alternative Medicine',
+        type: 'Research Paper',
+        link: 'https://example.com/lemon-balm-review'
+      },
+      {
+        title: 'Effects of Melissa officinalis L. on Anxiety-Like Reactivity',
+        author: 'Phytomedicine',
+        type: 'Research Paper',
+        link: 'https://example.com/lemon-balm-anxiety'
+      },
+      {
+        title: 'Lemon Balm: An Herb Society of America Guide',
+        author: 'Herb Society of America',
+        type: 'Guide',
+        link: 'https://example.com/lemon-balm-guide'
+      }
+    ]
+  },
+  {
+    id: 25,
+    name: 'Nettle',
+    scientificName: 'Urtica dioica',
+    slug: 'nettle',
+    description: 'Nettle is a nutrient-dense plant with remarkable healing properties for inflammation, allergies, and overall vitality. Despite its sting when fresh, once processed, it becomes a gentle yet powerful ally for health.',
+    imageUrl: '/images/herbs/nettle.jpg',
+    rating: 4.8,
+    categories: ['Nutritive', 'Anti-inflammatory', 'Allergy Relief', 'Detoxification', 'Hair & Skin'],
+    benefits: [
+      'Exceptionally rich in vitamins and minerals',
+      'Reduces inflammation throughout the body',
+      'Supports kidney and urinary tract health',
+      'Helps relieve seasonal allergy symptoms',
+      'Supports healthy hair and skin',
+      'Has gentle detoxifying properties'
+    ],
+    uses: [
+      'As a nutritive tonic for overall health',
+      'Managing seasonal allergies',
+      'Supporting joint health and reducing pain',
+      'Promoting healthy hair growth',
+      'Supporting kidney and urinary health',
+      'As a pregnancy tonic (when appropriate)'
+    ],
+    funFact: 'Despite its fearsome sting, nettle has been used to make cloth for thousands of years! During World War I, Germany used nettle fiber to make military uniforms when cotton was scarce. The sting of nettle was also traditionally used as a treatment for arthritis pain through a practice called "urtication" where the fresh plant was applied to painful joints.',
+    dosage: {
+      powder: '1-2 teaspoons daily',
+      capsule: '300-600mg, 3 times daily',
+      tincture: '2-4ml, 3 times daily',
+      tea: '1-2 tablespoons dried herb per cup, steep for 4-8 hours (cold infusion) or 10-15 minutes (hot infusion)'
+    },
+    warnings: [
+      'May interact with medications for high blood pressure, diabetes, and blood thinners',
+      'May affect kidney function and urine flow',
+      'Should be used with caution during pregnancy (consult a healthcare provider)',
+      'Fresh plant causes skin irritation; always use gloves when harvesting'
+    ],
+    history: 'Nettle has been used medicinally for thousands of years across many cultures. Ancient Egyptians used it for arthritis pain. Greek and Roman physicians, including Hippocrates and Galen, documented its use for a wide range of conditions. In medieval Europe, it was used to treat joint pain, eczema, anemia, and gout. Native American tribes used it for pregnancy support, allergies, and as a spring tonic. During both World Wars, nettle was harvested extensively as a food source and for fiber to make textiles when other materials were scarce.',
+    culturalBackground: 'In European folk medicine, nettle was considered a protective herb and was hung in doorways to ward off negativity. In Norse mythology, nettle was associated with Thor, the god of thunder, and was used in protective amulets. Many cultures have spring nettle festivals celebrating its emergence as one of the first edible greens, symbolizing renewal and vitality after winter. In traditional European herbalism, it was one of the primary "blood purifiers" used during spring cleansing rituals. In Russia, nettle was used in traditional steam baths (banya) for purification.',
+    preparation: 'Nettle leaves, roots, and seeds all have medicinal uses, though the leaves are most commonly used. They can be prepared as a tea (infusion), tincture, or taken in capsules. For maximum mineral content, a long cold infusion is recommended. Young leaves can be cooked and eaten as a nutritious vegetable similar to spinach. Cooking or drying neutralizes the sting. The root is primarily used for prostate health and prepared as a decoction or tincture.',
+    preparations: [
+      {
+        name: 'Nettle Mineral-Rich Infusion',
+        ingredients: [
+          '1 ounce (about 1 cup) dried nettle leaves',
+          '1 quart boiling water',
+          'Quart-sized glass jar with lid',
+          'Honey or lemon to taste (optional)'
+        ],
+        instructions: 'Place dried nettle in a quart jar. Pour boiling water over herbs, filling the jar. Stir to ensure all plant material is submerged. Cap tightly and let steep for 4-8 hours or overnight. Strain and store in the refrigerator for up to 3 days. Drink 1-3 cups daily as a nutritive tonic. This long infusion extracts the maximum amount of minerals and other water-soluble nutrients from the plant.'
+      },
+      {
+        name: 'Nettle Allergy Relief Tincture',
+        ingredients: [
+          '1 cup dried nettle leaves',
+          '2 cups high-proof alcohol (vodka or grain alcohol)',
+          '1/4 cup raw local honey (optional)',
+          'Glass jar with tight-fitting lid'
+        ],
+        instructions: 'Place dried nettle in a clean glass jar. Cover with alcohol. If using honey, add it now. Seal tightly and store in a cool, dark place for 4-6 weeks, shaking daily. Strain through cheesecloth and store in dark glass dropper bottles. Take 2-4ml, 3 times daily before and during allergy season for prevention and relief of symptoms.'
+      },
+      {
+        name: 'Nettle Hair Rinse',
+        ingredients: [
+          '2 cups dried nettle leaves',
+          '4 cups apple cider vinegar',
+          '10 drops rosemary essential oil (optional)',
+          'Glass jar with tight-fitting lid'
+        ],
+        instructions: 'Place dried nettle in a large glass jar. Cover with apple cider vinegar. Seal tightly and store in a cool, dark place for 2-4 weeks, shaking occasionally. Strain through cheesecloth and add essential oil if using. To use, after shampooing, dilute 1/4 cup of the rinse with 1 cup of water and pour over hair, massaging into scalp. Leave on for 1-2 minutes, then rinse lightly or leave in. This rinse helps strengthen hair, reduce dandruff, and add shine.'
+      }
+    ],
+    herbPairings: [
+      {
+        herb: 'Red Raspberry Leaf',
+        benefit: 'Enhanced nutritive properties for womens health'
+      },
+      {
+        herb: 'Dandelion',
+        benefit: 'Complementary detoxification support for liver and kidneys'
+      },
+      {
+        herb: 'Peppermint',
+        benefit: 'Improves flavor and adds digestive benefits'
+      },
+      {
+        herb: 'Quercetin',
+        benefit: 'Enhanced anti-allergy effects (supplement, not an herb)'
+      }
+    ],
+    benefitsVisualization: [
+      { area: 'Nutritional Content', percentage: 95 },
+      { area: 'Anti-inflammatory', percentage: 85 },
+      { area: 'Allergy Relief', percentage: 80 },
+      { area: 'Kidney Support', percentage: 75 },
+      { area: 'Hair & Skin Health', percentage: 85 }
+    ],
+    resources: [
+      {
+        title: 'Urtica dioica L.: A Review of its Ethnomedicinal, Phytochemical and Pharmacological Profile',
+        author: 'Journal of Ethnopharmacology',
+        type: 'Research Paper',
+        link: 'https://example.com/nettle-review'
+      },
+      {
+        title: 'The Role of Nettle (Urtica dioica) in Allergic Rhinitis',
+        author: 'Phytotherapy Research',
+        type: 'Research Paper',
+        link: 'https://example.com/nettle-allergies'
+      },
+      {
+        title: 'Nettles: The Stinging Superfood',
+        author: 'American Herbalists Guild',
+        type: 'Article',
+        link: 'https://example.com/nettle-superfood'
+      }
+    ]
+  },
+  {
+    id: 26,
+    name: 'Elderberry',
+    scientificName: 'Sambucus nigra',
+    slug: 'elderberry',
+    description: 'Elderberry is a powerful immune-supporting fruit with a rich history of traditional use for colds, flu, and overall wellness. Its deep purple berries are packed with antioxidants and compounds that help the body fight viral infections.',
+    imageUrl: '/images/herbs/elderberry.jpg',
+    rating: 4.9,
+    categories: ['Immune Support', 'Antiviral', 'Respiratory', 'Antioxidant', 'Traditional'],
+    benefits: [
+      'Supports immune system function',
+      'Has antiviral properties against cold and flu viruses',
+      'Rich in antioxidants and flavonoids',
+      'Supports respiratory health',
+      'May reduce duration and severity of cold and flu symptoms',
+      'Has mild anti-inflammatory properties'
+    ],
+    uses: [
+      'Preventing and treating colds and flu',
+      'Supporting overall immune function',
+      'As a daily antioxidant tonic',
+      'Supporting recovery from respiratory infections',
+      'Traditional winter wellness support',
+      'In combination with other immune herbs'
+    ],
+    funFact: 'Elderberry has such a rich folklore that it was considered a "complete medicine chest" in itself! In European folklore, an elder tree was believed to house a protective spirit called the "Elder Mother," and people would ask permission before harvesting from the tree. Hippocrates, the "father of medicine," referred to the elder tree as his "medicine chest."',
+    dosage: {
+      syrup: '1 teaspoon for children, 1 tablespoon for adults, 1-3 times daily',
+      tincture: '2-3ml, 3 times daily',
+      tea: '1-2 teaspoons dried berries per cup, decoct for 15-20 minutes',
+      capsule: '500-1000mg, 2-3 times daily'
+    },
+    warnings: [
+      'Raw, unripe elderberries contain cyanogenic glycosides and should never be consumed raw',
+      'May interact with immunosuppressant medications',
+      'May interact with diuretics and diabetes medications',
+      'Flowers and berries are safe when properly prepared; leaves, bark, and roots should be avoided'
+    ],
+    history: 'Elderberry has been used medicinally for thousands of years across many cultures. Ancient Egyptians used it for burns and to improve complexion. Hippocrates, Dioscorides, and other ancient physicians documented its medicinal uses. In medieval Europe, it was considered a holy tree with protective properties. Native American tribes used various elder species for infections, fevers, and joint pain. In the 1995 Panama flu epidemic, elderberry was used successfully to treat the symptoms, leading to increased scientific interest in its antiviral properties.',
+    culturalBackground: 'In European folklore, the elder tree was considered sacred and magical, associated with the goddess Holle or Hylde-Moer (Elder Mother). It was believed that cutting down an elder tree without permission would bring bad luck. In Celtic tradition, the elder represented the end of summer and the entrance to winter. The hollow branches were used to make musical instruments, and it was believed that music played on these instruments could communicate with the spirit world. In Christian symbolism, it was sometimes associated with the crucifixion, as it was believed that Judas hanged himself on an elder tree.',
+    preparation: 'Elderberries and flowers are the parts used medicinally. The berries are typically cooked and prepared as syrups, tinctures, or wines. The flowers can be prepared as teas, tinctures, or infused in honey. Both berries and flowers can be dried for later use. It is crucial to properly identify elderberry and to always cook the berries, as raw berries contain compounds that can cause nausea and digestive upset.',
+    preparations: [
+      {
+        name: 'Classic Elderberry Syrup',
+        ingredients: [
+          '1 cup dried elderberries (or 2 cups fresh)',
+          '4 cups water',
+          '1 tablespoon fresh ginger, grated',
+          '1 teaspoon cinnamon powder',
+          '5 cloves',
+          '1 cup raw honey',
+          '1 tablespoon lemon juice (optional)'
+        ],
+        instructions: 'Combine elderberries, water, ginger, cinnamon, and cloves in a pot. Bring to a boil, then reduce heat and simmer for 30-45 minutes until liquid is reduced by half. Remove from heat and let cool until lukewarm. Strain through a fine mesh strainer, pressing berries to extract all juice. Add honey and lemon juice if using, and stir well. Store in glass bottles in the refrigerator for up to 3 months. Take 1 teaspoon (children) or 1 tablespoon (adults) daily for prevention, or 3-4 times daily during illness.'
+      },
+      {
+        name: 'Elderflower Tea',
+        ingredients: [
+          '2 teaspoons dried elderflowers',
+          '1 teaspoon dried peppermint leaves (optional)',
+          '1/2 teaspoon dried thyme (optional)',
+          '1 cup hot water',
+          'Honey and lemon to taste'
+        ],
+        instructions: 'Place elderflowers and other herbs if using in a tea infuser. Pour hot water over herbs and steep for 10-15 minutes. Strain and add honey and lemon if desired. Drink 2-3 cups daily at the first sign of a cold or flu, especially when accompanied by fever. This tea helps induce sweating and support the body\'s natural fever process.'
+      },
+      {
+        name: 'Elderberry Oxymel',
+        ingredients: [
+          '1 cup dried elderberries',
+          '1 cup raw apple cider vinegar',
+          '1 cup raw honey',
+          '1 tablespoon fresh grated ginger',
+          '1 cinnamon stick',
+          'Glass jar with tight-fitting lid'
+        ],
+        instructions: 'Combine all ingredients in a glass jar. Stir well to ensure honey is fully incorporated. Seal tightly and store in a cool, dark place for 2-4 weeks, shaking daily. Strain through cheesecloth and store in glass bottles. Take 1 tablespoon daily mixed with water or tea for immune support, or 1 tablespoon 3 times daily during illness. This preparation combines the benefits of elderberry with the digestive support of vinegar and the soothing properties of honey.'
+      }
+    ],
+    herbPairings: [
+      {
+        herb: 'Echinacea',
+        benefit: 'Enhanced immune-stimulating effects'
+      },
+      {
+        herb: 'Rose Hips',
+        benefit: 'Added vitamin C and antioxidant support'
+      },
+      {
+        herb: 'Ginger',
+        benefit: 'Warming circulation support and added anti-inflammatory action'
+      },
+      {
+        herb: 'Thyme',
+        benefit: 'Complementary antimicrobial support for respiratory infections'
+      }
+    ],
+    benefitsVisualization: [
+      { area: 'Antiviral Activity', percentage: 90 },
+      { area: 'Immune Support', percentage: 95 },
+      { area: 'Antioxidant Content', percentage: 85 },
+      { area: 'Respiratory Support', percentage: 80 },
+      { area: 'Anti-inflammatory', percentage: 75 }
+    ],
+    resources: [
+      {
+        title: 'Randomized Study of the Efficacy and Safety of Oral Elderberry Extract in the Treatment of Influenza A and B Virus Infections',
+        author: 'Journal of International Medical Research',
+        type: 'Research Paper',
+        link: 'https://example.com/elderberry-flu-study'
+      },
+      {
+        title: 'The Effect of Sambucol, a Black Elderberry-Based, Natural Product, on the Production of Human Cytokines',
+        author: 'European Cytokine Network',
+        type: 'Research Paper',
+        link: 'https://example.com/elderberry-cytokines'
+      },
+      {
+        title: 'Elderberry: History, Folklore, and Modern Uses',
+        author: 'HerbalGram',
+        type: 'Article',
+        link: 'https://example.com/elderberry-history'
+      }
+    ]
   }
 ];
 

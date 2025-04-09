@@ -13,6 +13,11 @@ import advancedHerbs from './advancedHerbs';
 import therapeuticHerbs from './therapeuticHerbs';
 import remedialHerbs from './remedialHerbs';
 import nutritiveHerbs from './nutritiveHerbs';
+import additionalMedicinalHerbs from './additionalMedicinalHerbs';
+import traditionalMedicinalHerbs from './traditionalMedicinalHerbs';
+import adaptogenicHerbs from './adaptogenicHerbs';
+import specialtyHerbs from './specialtyHerbs';
+import immuneHerbs from './immuneHerbs';
 
 // Combine all herb data sources
 export const allHerbs: HerbData[] = [
@@ -29,6 +34,11 @@ export const allHerbs: HerbData[] = [
   ...advancedHerbs,
   ...therapeuticHerbs,
   ...remedialHerbs,
+  ...additionalMedicinalHerbs,
+  ...traditionalMedicinalHerbs,
+  ...adaptogenicHerbs,
+  ...specialtyHerbs,
+  ...immuneHerbs,
   ...nutritiveHerbs,
   // Additional herbs
   {

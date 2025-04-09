@@ -139,240 +139,142 @@ const preparationDetails: Record<PreparationType, PreparationDetails> = {
   }
 };
 
-export default function CommonPreparations() {
-  const [openPreparation, setOpenPreparation] = useState<PreparationType | null>(null);
+interface HerbPreparation {
+  name: string;
+  ingredients: string[];
+  instructions: string;
+}
 
-  const togglePreparation = (prep: PreparationType) => {
-    if (openPreparation === prep) {
+interface CommonPreparationsProps {
+  preparations: HerbPreparation[];
+}
+
+export default function CommonPreparations({ preparations }: CommonPreparationsProps) {
+  const [openPreparation, setOpenPreparation] = useState<string | null>(null);
+
+  const togglePreparation = (prepName: string) => {
+    if (openPreparation === prepName) {
       setOpenPreparation(null);
     } else {
-      setOpenPreparation(prep);
+      setOpenPreparation(prepName);
     }
+  };
+
+  const getPreparationStyle = (prepName: string) => {
+    const name = prepName.toLowerCase();
+    
+    if (name.includes('tincture')) {
+      return {
+        icon: <FaVial className="w-6 h-6 text-purple-500" />,
+        color: 'bg-purple-100 dark:bg-purple-900/20',
+        textColor: 'text-purple-700 dark:text-purple-400'
+      };
+    } else if (name.includes('tea') || name.includes('infusion') || name.includes('decoction')) {
+      return {
+        icon: <FaMugHot className="w-6 h-6 text-green-500" />,
+        color: 'bg-green-100 dark:bg-green-900/20',
+        textColor: 'text-green-700 dark:text-green-400'
+      };
+    } else if (name.includes('capsule')) {
+      return {
+        icon: <FaCapsules className="w-6 h-6 text-blue-500" />,
+        color: 'bg-blue-100 dark:bg-blue-900/20',
+        textColor: 'text-blue-700 dark:text-blue-400'
+      };
+    } else if (name.includes('extract') || name.includes('powder') || name.includes('oil')) {
+      return {
+        icon: <FaFlask className="w-6 h-6 text-amber-500" />,
+        color: 'bg-amber-100 dark:bg-amber-900/20',
+        textColor: 'text-amber-700 dark:text-amber-400'
+      };
+    } else {
+      // Default style
+      return {
+        icon: <FaFlask className="w-6 h-6 text-gray-500" />,
+        color: 'bg-gray-100 dark:bg-gray-800',
+        textColor: 'text-gray-700 dark:text-gray-300'
+      };
+    }
+  };
+
+  const parseInstructions = (instructions: string) => {
+    // Split instructions by periods, semicolons, or numbered patterns
+    const steps = instructions
+      .split(/(?:\. |\; |\d+\. )/) // Split by period+space, semicolon+space, or number+period+space
+      .filter(step => step.trim().length > 0) // Remove empty steps
+      .map(step => {
+        // Ensure each step ends with a period
+        let trimmedStep = step.trim();
+        if (!trimmedStep.endsWith('.')) {
+          trimmedStep += '.';
+        }
+        return trimmedStep;
+      });
+    
+    return steps;
   };
 
   return (
     <div className="space-y-4">
-      <h2 className="text-2xl font-serif font-bold text-amber-700 dark:text-amber-500 mb-4">Common Preparations</h2>
+      <h2 className="text-2xl font-serif font-bold text-amber-700 dark:text-amber-500 mb-4">Herb Preparation Methods</h2>
       
-      {/* Tincture */}
-      <div className={`rounded-lg border ${openPreparation === 'tincture' ? 'border-purple-300 dark:border-purple-700' : 'border-gray-200 dark:border-gray-700'} overflow-hidden transition-all duration-300`}>
-        <button 
-          onClick={() => togglePreparation('tincture')}
-          className={`w-full p-4 flex items-center justify-between ${preparationDetails.tincture.color}`}
-        >
-          <div className="flex items-center">
-            {preparationDetails.tincture.icon}
-            <div className="ml-4">
-              <h3 className="text-xl font-medium text-purple-700 dark:text-purple-400">{preparationDetails.tincture.title}</h3>
-              <p className="text-purple-600 dark:text-purple-300">{preparationDetails.tincture.description}</p>
+      {preparations && preparations.length > 0 ? (
+        preparations.map((prep, index) => {
+          const style = getPreparationStyle(prep.name);
+          const steps = parseInstructions(prep.instructions);
+          
+          return (
+            <div 
+              key={index} 
+              className={`rounded-lg border ${openPreparation === prep.name ? 'border-primary-300 dark:border-primary-700' : 'border-gray-200 dark:border-gray-700'} overflow-hidden transition-all duration-300`}
+            >
+              <button 
+                onClick={() => togglePreparation(prep.name)}
+                className={`w-full p-4 flex items-center justify-between ${style.color}`}
+              >
+                <div className="flex items-center">
+                  {style.icon}
+                  <div className="ml-4">
+                    <h3 className={`text-xl font-medium ${style.textColor}`}>{prep.name}</h3>
+                  </div>
+                </div>
+                <svg 
+                  className={`w-6 h-6 ${style.textColor} transform transition-transform duration-300 ${openPreparation === prep.name ? 'rotate-180' : ''}`} 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {openPreparation === prep.name && (
+                <div className="p-4 bg-white dark:bg-slate-800">
+                  <div className="mb-4">
+                    <h4 className="font-bold text-gray-700 dark:text-gray-300 mb-2">Ingredients Needed:</h4>
+                    <ul className="list-disc pl-5 space-y-1">
+                      {prep.ingredients.map((ingredient, idx) => (
+                        <li key={idx} className="text-gray-600 dark:text-gray-400">{ingredient}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div className="mb-4">
+                    <h4 className="font-bold text-gray-700 dark:text-gray-300 mb-2">Preparation Steps:</h4>
+                    <ol className="list-decimal pl-5 space-y-2">
+                      {steps.map((step, idx) => (
+                        <li key={idx} className="text-gray-600 dark:text-gray-400">{step}</li>
+                      ))}
+                    </ol>
+                  </div>
+                </div>
+              )}
             </div>
-          </div>
-          <svg 
-            className={`w-6 h-6 text-purple-500 transform transition-transform duration-300 ${openPreparation === 'tincture' ? 'rotate-180' : ''}`} 
-            fill="none" 
-            viewBox="0 0 24 24" 
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        
-        {openPreparation === 'tincture' && (
-          <div className="p-4 bg-white dark:bg-slate-800">
-            <div className="mb-4">
-              <h4 className="font-bold text-gray-700 dark:text-gray-300 mb-2">Materials Needed:</h4>
-              <ul className="list-disc pl-5 space-y-1">
-                {preparationDetails.tincture.materials.map((material, index) => (
-                  <li key={index} className="text-gray-600 dark:text-gray-400">{material}</li>
-                ))}
-              </ul>
-            </div>
-            
-            <div className="mb-4">
-              <h4 className="font-bold text-gray-700 dark:text-gray-300 mb-2">Steps:</h4>
-              <ol className="list-decimal pl-5 space-y-2">
-                {preparationDetails.tincture.steps.map((step, index) => (
-                  <li key={index} className="text-gray-600 dark:text-gray-400">{step}</li>
-                ))}
-              </ol>
-            </div>
-            
-            <div>
-              <h4 className="font-bold text-gray-700 dark:text-gray-300 mb-2">Tips:</h4>
-              <ul className="list-disc pl-5 space-y-1">
-                {preparationDetails.tincture.tips.map((tip, index) => (
-                  <li key={index} className="text-gray-600 dark:text-gray-400">{tip}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        )}
-      </div>
-      
-      {/* Tea */}
-      <div className={`rounded-lg border ${openPreparation === 'tea' ? 'border-green-300 dark:border-green-700' : 'border-gray-200 dark:border-gray-700'} overflow-hidden transition-all duration-300`}>
-        <button 
-          onClick={() => togglePreparation('tea')}
-          className={`w-full p-4 flex items-center justify-between ${preparationDetails.tea.color}`}
-        >
-          <div className="flex items-center">
-            {preparationDetails.tea.icon}
-            <div className="ml-4">
-              <h3 className="text-xl font-medium text-green-700 dark:text-green-400">{preparationDetails.tea.title}</h3>
-              <p className="text-green-600 dark:text-green-300">{preparationDetails.tea.description}</p>
-            </div>
-          </div>
-          <svg 
-            className={`w-6 h-6 text-green-500 transform transition-transform duration-300 ${openPreparation === 'tea' ? 'rotate-180' : ''}`} 
-            fill="none" 
-            viewBox="0 0 24 24" 
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        
-        {openPreparation === 'tea' && (
-          <div className="p-4 bg-white dark:bg-slate-800">
-            <div className="mb-4">
-              <h4 className="font-bold text-gray-700 dark:text-gray-300 mb-2">Materials Needed:</h4>
-              <ul className="list-disc pl-5 space-y-1">
-                {preparationDetails.tea.materials.map((material, index) => (
-                  <li key={index} className="text-gray-600 dark:text-gray-400">{material}</li>
-                ))}
-              </ul>
-            </div>
-            
-            <div className="mb-4">
-              <h4 className="font-bold text-gray-700 dark:text-gray-300 mb-2">Steps:</h4>
-              <ol className="list-decimal pl-5 space-y-2">
-                {preparationDetails.tea.steps.map((step, index) => (
-                  <li key={index} className="text-gray-600 dark:text-gray-400">{step}</li>
-                ))}
-              </ol>
-            </div>
-            
-            <div>
-              <h4 className="font-bold text-gray-700 dark:text-gray-300 mb-2">Tips:</h4>
-              <ul className="list-disc pl-5 space-y-1">
-                {preparationDetails.tea.tips.map((tip, index) => (
-                  <li key={index} className="text-gray-600 dark:text-gray-400">{tip}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        )}
-      </div>
-      
-      {/* Capsules */}
-      <div className={`rounded-lg border ${openPreparation === 'capsules' ? 'border-blue-300 dark:border-blue-700' : 'border-gray-200 dark:border-gray-700'} overflow-hidden transition-all duration-300`}>
-        <button 
-          onClick={() => togglePreparation('capsules')}
-          className={`w-full p-4 flex items-center justify-between ${preparationDetails.capsules.color}`}
-        >
-          <div className="flex items-center">
-            {preparationDetails.capsules.icon}
-            <div className="ml-4">
-              <h3 className="text-xl font-medium text-blue-700 dark:text-blue-400">{preparationDetails.capsules.title}</h3>
-              <p className="text-blue-600 dark:text-blue-300">{preparationDetails.capsules.description}</p>
-            </div>
-          </div>
-          <svg 
-            className={`w-6 h-6 text-blue-500 transform transition-transform duration-300 ${openPreparation === 'capsules' ? 'rotate-180' : ''}`} 
-            fill="none" 
-            viewBox="0 0 24 24" 
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        
-        {openPreparation === 'capsules' && (
-          <div className="p-4 bg-white dark:bg-slate-800">
-            <div className="mb-4">
-              <h4 className="font-bold text-gray-700 dark:text-gray-300 mb-2">Materials Needed:</h4>
-              <ul className="list-disc pl-5 space-y-1">
-                {preparationDetails.capsules.materials.map((material, index) => (
-                  <li key={index} className="text-gray-600 dark:text-gray-400">{material}</li>
-                ))}
-              </ul>
-            </div>
-            
-            <div className="mb-4">
-              <h4 className="font-bold text-gray-700 dark:text-gray-300 mb-2">Steps:</h4>
-              <ol className="list-decimal pl-5 space-y-2">
-                {preparationDetails.capsules.steps.map((step, index) => (
-                  <li key={index} className="text-gray-600 dark:text-gray-400">{step}</li>
-                ))}
-              </ol>
-            </div>
-            
-            <div>
-              <h4 className="font-bold text-gray-700 dark:text-gray-300 mb-2">Tips:</h4>
-              <ul className="list-disc pl-5 space-y-1">
-                {preparationDetails.capsules.tips.map((tip, index) => (
-                  <li key={index} className="text-gray-600 dark:text-gray-400">{tip}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        )}
-      </div>
-      
-      {/* Extract */}
-      <div className={`rounded-lg border ${openPreparation === 'extract' ? 'border-amber-300 dark:border-amber-700' : 'border-gray-200 dark:border-gray-700'} overflow-hidden transition-all duration-300`}>
-        <button 
-          onClick={() => togglePreparation('extract')}
-          className={`w-full p-4 flex items-center justify-between ${preparationDetails.extract.color}`}
-        >
-          <div className="flex items-center">
-            {preparationDetails.extract.icon}
-            <div className="ml-4">
-              <h3 className="text-xl font-medium text-amber-700 dark:text-amber-400">{preparationDetails.extract.title}</h3>
-              <p className="text-amber-600 dark:text-amber-300">{preparationDetails.extract.description}</p>
-            </div>
-          </div>
-          <svg 
-            className={`w-6 h-6 text-amber-500 transform transition-transform duration-300 ${openPreparation === 'extract' ? 'rotate-180' : ''}`} 
-            fill="none" 
-            viewBox="0 0 24 24" 
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        
-        {openPreparation === 'extract' && (
-          <div className="p-4 bg-white dark:bg-slate-800">
-            <div className="mb-4">
-              <h4 className="font-bold text-gray-700 dark:text-gray-300 mb-2">Materials Needed:</h4>
-              <ul className="list-disc pl-5 space-y-1">
-                {preparationDetails.extract.materials.map((material, index) => (
-                  <li key={index} className="text-gray-600 dark:text-gray-400">{material}</li>
-                ))}
-              </ul>
-            </div>
-            
-            <div className="mb-4">
-              <h4 className="font-bold text-gray-700 dark:text-gray-300 mb-2">Steps:</h4>
-              <ol className="list-decimal pl-5 space-y-2">
-                {preparationDetails.extract.steps.map((step, index) => (
-                  <li key={index} className="text-gray-600 dark:text-gray-400">{step}</li>
-                ))}
-              </ol>
-            </div>
-            
-            <div>
-              <h4 className="font-bold text-gray-700 dark:text-gray-300 mb-2">Tips:</h4>
-              <ul className="list-disc pl-5 space-y-1">
-                {preparationDetails.extract.tips.map((tip, index) => (
-                  <li key={index} className="text-gray-600 dark:text-gray-400">{tip}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        )}
-      </div>
+          );
+        })
+      ) : (
+        <p className="text-gray-600 dark:text-gray-400">No preparation methods available for this herb.</p>
+      )}
     </div>
   );
 }

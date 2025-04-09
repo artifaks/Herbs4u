@@ -1,13 +1,33 @@
 [build]
-  command = "npm run netlify-build"
+  command = "npm run build"
   publish = "out"
 
 [build.environment]
-  NEXT_PUBLIC_APP_URL = "https://sacred-herb-app.netlify.app"
+  NEXT_PUBLIC_APP_URL = "https://sacred-herb-static.windsurf.build"
   NODE_VERSION = "18"
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
+  NEXT_TELEMETRY_DISABLED = "1"
 
-# Redirect all routes to index.html for client-side routing
+# Handle SPA routing
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  force = true
+
+# Special redirects for known paths
+[[redirects]]
+  from = "/herbs/*"
+  to = "/herbs/[slug].html"
+  status = 200
+
+[[redirects]]
+  from = "/categories/*"
+  to = "/categories/[slug].html"
+  status = 200
+
+# Handle 404 errors
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404

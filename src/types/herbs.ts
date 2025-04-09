@@ -2,6 +2,8 @@ export type HerbPreparation = {
   name: string;
   ingredients: string[];
   instructions: string;
+  prepTime?: string; // Optional preparation time (e.g., "15 minutes")
+  difficulty?: 'Easy' | 'Moderate' | 'Advanced'; // Optional difficulty level
 };
 
 export type HerbPairing = {

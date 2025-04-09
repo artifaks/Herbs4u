@@ -16,6 +16,11 @@ interface RelatedHerbsProps {
 }
 
 export default function RelatedHerbs({ currentHerbName, relatedHerbs }: RelatedHerbsProps) {
+  // Check if relatedHerbs is undefined or empty
+  if (!relatedHerbs || relatedHerbs.length === 0) {
+    return null; // Don't render anything if there are no related herbs
+  }
+  
   return (
     <div className="mt-12">
       <h2 className="text-2xl font-serif font-bold mb-6">You Might Also Like</h2>
