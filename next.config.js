@@ -27,6 +27,8 @@ const nextConfig = {
   output: 'export',
   // Ensure trailing slashes are handled correctly
   trailingSlash: true,
+  // Add basePath for Netlify
+  basePath: '',
   // Disable server-side features that aren't compatible with static export
   distDir: '.next',
   // Ensure we don't use features incompatible with static export

@@ -1,5 +1,12 @@
-# Redirects for client-side routing
+# Redirects for Next.js client-side routing
 /*    /index.html   200
+
+# API routes
+/api/*  /.netlify/functions/:splat  200
+
+# Dynamic routes
+/herbs/*  /herbs/[slug]/index.html  200
+/categories/*  /categories/[slug]/index.html  200
 
 # Handle 404s with custom page
 /*    /404.html    404
